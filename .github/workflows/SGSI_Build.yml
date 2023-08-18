@@ -1,8 +1,24 @@
 name: SGSI_Build
 
 on:
-  watch:
-    types: [started]
+   workflow_dispatch:
+    inputs:
+      ROM_URL:
+        description: 'ROM_URL'
+        required: true
+        default: 'https://dl.google.com/developers/android/sc/images/ota/redfin-ota-spp2.210219.008-3d61e529.zip'
+      ZIP_NAME:
+        description: 'ZIP_NAME'
+        required: true
+        default: 'redfin-ota-spp2.210219.008-3d61e529.zip'
+      OS_TYPE:
+        description: 'OS_TYPE'
+        required: true
+        default: 'generic'
+      REPACK_NAME:
+        description: 'REPACK_NAME'
+        required: true
+        default: 'SGSI.zip'
 
 jobs:
   build:
@@ -15,8 +31,6 @@ jobs:
       - name: Load Configuration
         uses: falti/dotenv-action@v0.2.5
         id: config
-        with:
-          path: config.env
 
       - name: Check Configuration
         run: |
