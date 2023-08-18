@@ -2,14 +2,28 @@
 name: SGSI_Build
 
 on:
-   workflow_dispatch:
+  workflow_dispatch:
     inputs:
-     ROM_URL=https://get.pixelexperience.org/ZitpZUZNUWVmM2cwLzkzQzFaMW9FOUQyaFo1WnR0RWNhbXNzUTJEaUJvaDdnZkp2NlQ2ZlVOVlBrVzNub21lenpmMjJXZzFDdFc0Y0N4YkFJYUQ4bWphTlpzZDM4TVRTSll1OGpkaGgzeHM9/PixelExperience_Plus_redfin-12.1-20220613-0657-OFFICIAL.zip
-ZIP_NAME=update.zip
-OS_TYPE=Generic
-BUILD_TYPE=AB
-REPACK_NAME=SGSI.zip
-VERSION=12.1
+      ROM_URL:
+        description: 'ROM_URL'
+        required: true
+        default: 'https://hugeota.d.miui.com/21.5.31/miui_TUCANA_21.5.31_cb42ec9bed_11.0.zip'
+      ZIP_NAME:
+        description: 'ZIP_NAME'
+        required: true
+        default: 'miui_TUCANA_21.5.31_cb42ec9bed_11.0.zip'
+      OS_TYPE:
+        description: 'OS_TYPE'
+        required: true
+        default: 'miui'
+      SGSI_TYPE:
+        description: 'SGSI_TYPE(AB, A, or BOTH)'
+        required: true
+        default: 'AB'
+      REPACK_NAME:
+        description: 'REPACK_NAME'
+        required: true
+        default: 'SGSI.zip'
 
 jobs:
   build:
@@ -18,19 +32,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Load Configuration
-        uses: falti/dotenv-action@v0.2.5
-
-      - name: Check Configuration
-        run: |
-          function required () { if ! [[ "$1" ]]; then echo "$2 variable can't be null." && exit 1; fi }
-          required "${{ steps.config.outputs.rom_url }}" "ROM_URL config"
-          required "${{ steps.config.outputs.build_type }}" "BUILD_TYPE config"
-          required "${{ steps.config.outputs.os_type }}" "OS_TYPE config"
-          required "${{ steps.config.outputs.zip_name }}" "ZIP_NAME config"
-          required "${{ steps.config.outputs.version }}" "VERSION config"
-          required "${{ steps.config.outputs.repack_name }}" "REPACK_NAME config"
 
       - name: Cleanup workspace
         run: |
