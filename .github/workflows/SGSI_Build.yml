@@ -28,8 +28,6 @@ workflow_dispatch:
         description: 'VERSION'
         required: true
         default: '12.1'
-  watch:
-    types: [started]
 
 jobs:
   build:
