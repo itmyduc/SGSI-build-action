@@ -1,44 +1,39 @@
-
 name: SGSI_Build
 
 on:
-   workflow_dispatch:
+  workflow_dispatch:
     inputs:
       ROM_URL:
         description: 'ROM_URL'
         required: true
-        default: 'https://dl.google.com/developers/android/sc/images/ota/redfin-ota-spp2.210219.008-3d61e529.zip'
+        default: 'https://hugeota.d.miui.com/21.5.31/miui_TUCANA_21.5.31_cb42ec9bed_11.0.zip'
       ZIP_NAME:
         description: 'ZIP_NAME'
         required: true
-        default: 'update.zip'
+        default: 'miui_TUCANA_21.5.31_cb42ec9bed_11.0.zip'
       OS_TYPE:
         description: 'OS_TYPE'
         required: true
-        default: 'generic'
-      BUILD_TYP:
-	    description: 'BUILD_TYP'
+        default: 'miui'
+      SGSI_TYPE:
+        description: 'SGSI_TYPE(AB, A, or BOTH)'
         required: true
         default: 'AB'
-	  REPACK_NAME:
+      REPACK_NAME:
         description: 'REPACK_NAME'
         required: true
         default: 'SGSI.zip'
-	 VERSION:
-        description: 'VERSION'
-        required: true
-        default: '12.1'
+
+
+
 
 jobs:
   build:
     runs-on: ubuntu-20.04
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Load Configuration
-        uses: falti/dotenv-action@v0.2.5
+      - name: Get the source code of this repositorie...
+        uses: actions/checkout@main.5
 
       - name: Check Configuration
         run: |
