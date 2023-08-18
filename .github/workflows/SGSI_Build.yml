@@ -20,10 +20,6 @@ workflow_dispatch:
         description: 'REPACK_NAME'
         required: true
         default: 'SGSI.zip'
-	 VERSION:
-        description: 'VERSION'
-        required: true
-        default: '12.1'
 
 jobs:
   build:
