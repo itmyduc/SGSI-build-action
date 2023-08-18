@@ -55,7 +55,7 @@ jobs:
         run: |
           sudo sed -i 's/USE_MIRROR_FOR_PIP\=true/USE_MIRROR_FOR_PIP\=false/' $GITHUB_WORKSPACE/SGSI-build-tool/setup.sh
           sudo bash $GITHUB_WORKSPACE/SGSI-build-tool/setup.sh
-        # sudo apt-get -y --purge remove "adoptopenjdk-11-hotspot"
+        # sudo apt purge openJDK*
         # java -version
 
       - name: Build SGSI
