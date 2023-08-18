@@ -16,11 +16,7 @@ workflow_dispatch:
         description: 'OS_TYPE'
         required: true
         default: 'generic'
-      BUILD_TYP:
-	    description: 'BUILD_TYP'
-        required: true
-        default: 'AB'
-	  REPACK_NAME:
+	REPACK_NAME:
         description: 'REPACK_NAME'
         required: true
         default: 'SGSI.zip'
