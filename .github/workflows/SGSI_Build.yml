@@ -1,6 +1,33 @@
 name: SGSI_Build
 
 on:
+
+workflow_dispatch:
+    inputs:
+      ROM_URL:
+        description: 'ROM_URL'
+        required: true
+        default: 'https://dl.google.com/developers/android/sc/images/ota/redfin-ota-spp2.210219.008-3d61e529.zip'
+      ZIP_NAME:
+        description: 'ZIP_NAME'
+        required: true
+        default: 'update.zip'
+      OS_TYPE:
+        description: 'OS_TYPE'
+        required: true
+        default: 'generic'
+      BUILD_TYP:
+	    description: 'BUILD_TYP'
+        required: true
+        default: 'AB'
+	  REPACK_NAME:
+        description: 'REPACK_NAME'
+        required: true
+        default: 'SGSI.zip'
+	 VERSION:
+        description: 'VERSION'
+        required: true
+        default: '12.1'
   watch:
     types: [started]
 
