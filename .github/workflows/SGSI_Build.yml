@@ -30,7 +30,6 @@ jobs:
 
       - name: Load Configuration
         uses: falti/dotenv-action@v0.2.5
-        id: config
 
       - name: Check Configuration
         run: |
