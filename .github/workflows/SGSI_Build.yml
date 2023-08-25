@@ -7,9 +7,9 @@ on:
     types: [started]
     
 env:              
-  ROM_URL: 'https://dl.google.com/developers/android/sc/images/factory/blueline-spb5.210812.002-factory-6390aefc.zip'
-  ZIP_NAME: 'blueline-spb5.210812.002-factory-6390aefc.zip'
-  OS_TYPE: 'Generic'
+  ROM_URL: 'http://172.245.75.15/Mix2_MIUI14.zip'
+  ZIP_NAME: 'Mix2_MIUI14.zip'
+  OS_TYPE: 'miui'
   BUILD_TYPE: 'ab'
   REPACK_NAME: 'SGSIA12.zip'
   VERSION: '12'
